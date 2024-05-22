@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.faq {
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.faq h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.faq-item {
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.faq-question {
+    margin: 0;
+    padding: 15px;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background-color: #fff;
+    padding: 0 15px;
+}
+
+.faq-answer p {
+    margin: 15px 0;
+}
+
+/* Open state styles */
+.faq-item.open .faq-answer {
+    max-height: 200px; /* Adjust according to content size */
+    padding: 15px;
+}
+
+</style>
+<body>
+    <!-- Main content of the website -->
+    
+    <section class="faq">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item">
+            <h3 class="faq-question">What sources do you use for weather data?</h3>
+            <div class="faq-answer">
+                <p>We use data from multiple sources including national meteorological services, satellite data, and reliable weather models to provide accurate forecasts.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <h3 class="faq-question">How often is the weather information updated?</h3>
+            <div class="faq-answer">
+                <p>Our weather data is updated every hour to ensure you have the latest information.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <h3 class="faq-question">Can I access historical weather data?</h3>
+            <div class="faq-answer">
+                <p>Yes, you can access historical weather data for various locations. Please visit our historical data section for more information.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <h3 class="faq-question">Do you provide weather alerts and warnings?</h3>
+            <div class="faq-answer">
+                <p>Yes, we provide real-time weather alerts and warnings for severe weather conditions to keep you safe and prepared.</p>
+            </div>
+        </div>
+    </section>
+    
+    <footer class="footer">
+        <!-- Footer content here -->
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        
+        question.addEventListener('click', () => {
+            item.classList.toggle('open');
+            
+            const answer = item.querySelector('.faq-answer');
+            if (item.classList.contains('open')) {
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+            } else {
+                answer.style.maxHeight = 0;
+            }
+        });
+    });
+});
+
+</script>
+</html>

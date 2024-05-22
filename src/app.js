@@ -2,11 +2,12 @@ const express=require("express");
 const path= require('path');
 const hbs = require('hbs');
 const app=express();
-const port=process.env.PORT||8000;
+const port=process.env.PORT||8006;
 
 const static_path= path.join(__dirname,"../public");
 const templates_path=path.join(__dirname,"../templates");
 const partials_path=path.join(__dirname,"../templates/partials");
+
 
 app.set('view engine', 'hbs');
 app.set('views',templates_path);
